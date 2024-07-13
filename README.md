@@ -15,8 +15,8 @@ This documentation provides an overview of the messaging system, which includes 
 First, clone the repository to your local machine.
 
 ```bash
-git clone <repository-url>
-cd <repository-directory>
+git clone https://github.com/dominic-source/ngrok_nginx_fastapi.git
+cd ngrok_nginx_fastapi
 ```
 
 ### Step 2: Install Dependencies
@@ -50,7 +50,7 @@ Ensure RabbitMQ is installed and running on your system as it is required by Cel
 
 ### Step 4: Set Up Environment Variables
 
-Create a [`.env`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fhome%2Fdominic-source%2FProjects%2Ffastapi_training%2F.env%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/home/dominic-source/Projects/fastapi_training/.env") file in the root directory of your project and add the following environment variables:
+Create a `.env` file in the root directory of your project and add the following environment variables:
 
 ```plaintext
 USER_EMAIL=your_email@example.com
@@ -77,15 +77,17 @@ Run the FastAPI application.
 uvicorn main:app --reload
 ```
 
-### Step 7: Expose Local Server Using Ngrok
+### Step 7: Expose Local Server Using Ngrok and Nginx
+
+- Follow the installation guide to install Nginx  and set it up [Nginx installation guide](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-plus/)
 
 To expose your local development server to the internet, use Ngrok.
 
 - Download and install Ngrok from [https://ngrok.com/download](https://ngrok.com/download).
-- Run Ngrok to expose port 8000 (or your FastAPI running port).
+- Run Ngrok to expose port 80 from our nginx reverse proxy server running on port 80.
 
   ```bash
-  ./ngrok http 8000
+  ./ngrok http 80
   ```
 
 Ngrok will provide you with a public URL that forwards to your local server.
