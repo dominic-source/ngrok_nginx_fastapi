@@ -14,7 +14,7 @@ async def send_mail(sendmail: str, talktome: str = None):
         # Queue the email sending task
         send_email_task.delay(sendmail, talktome)
         if talktome:
-            logging.info(f"Current time logged at")
+            logging.debug(f"Current time logged at")
         return {"message": "Mail has been added to queue"}
     else:
         raise HTTPException(status_code=400, detail="sendmail parameter is required")
