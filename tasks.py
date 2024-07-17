@@ -4,7 +4,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from decouple import config
 
-app = Celery('task', broker='amqp://guest@localhost//')
+app = Celery('task', broker='amqp://guest:guest@rabbitmq:5672//')
 
 @app.task
 def send_email_task(email: str, talktome: str = None):
