@@ -12,4 +12,4 @@ EXPOSE 8000
 
 RUN celery -A tasks worker --loglevel=info --detach
 
-CMD ["fastapi dev &> /dev/null &"]
+CMD ["sh", "-c", "fastapi dev &> /dev/null &"]
