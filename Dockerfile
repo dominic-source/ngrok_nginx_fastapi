@@ -8,6 +8,8 @@ COPY ..
 
 RUN pip install -r requirements.txt
 
+RUN chmod +x ngrok-entrypoint.sh
+
 EXPOSE 8000
 
 RUN celery -A tasks worker --loglevel=info --detach
