@@ -17,6 +17,8 @@ services:
       - "--all"
       - "--config"
       - "/etc/ngrok.yml"
+      - "--port"
+      - "8000"
     volumes:
       - ./ngrok.yml:/etc/ngrok.yml
     ports:
